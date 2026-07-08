@@ -1319,6 +1319,11 @@
     })();
 
     // ── helpers ──────────────────────────────────────────────────────
+    // thumbs vivem em assets/<categoria>/thumbs/<arquivo> (gerados a partir do src)
+    function thumbPath(src) {
+      const i = src.lastIndexOf('/');
+      return src.slice(0, i + 1) + 'thumbs/' + src.slice(i + 1);
+    }
     function getCat(id) { return GALLERY_CONFIG.categories.find(c => c.id === id); }
     function getSubLabel(catId, subId) {
       const cat = getCat(catId);
@@ -1417,9 +1422,10 @@
       card.className = 'g-card' + (item.isPlant ? ' is-plant' : '');
 
       const img = document.createElement('img');
-      img.src = item.thumb || item.src;
+      img.src = item.thumb || thumbPath(item.src);
       img.alt = item.title;
       img.loading = 'lazy';
+      img.decoding = 'async';
       img.addEventListener('load', () => card.classList.add('loaded'));
       img.addEventListener('error', () => card.classList.add('loaded'));
       if (img.complete) card.classList.add('loaded');
@@ -1486,9 +1492,10 @@
         wrap.className = 'floor-wrap' + (fi === 0 ? ' active' : '');
 
         const img = document.createElement('img');
-        img.src = floor.thumb || floor.src;
+        img.src = floor.thumb || thumbPath(floor.src);
         img.alt = floor.label;
         img.loading = 'lazy';
+        img.decoding = 'async';
         img.addEventListener('click', () => openLbFloor(item, fi));
         const onImgLoad = () => {
           img.classList.add('loaded');
