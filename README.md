@@ -121,34 +121,34 @@ categories: [
 ### URL do bucket
 
 ```
-s3://skylineip/Tour Virtual/ABL Prime/SALTO IMPERIAL/galeria-imagems/
+s3://skylineip/Tour Virtual/ABL Prime/galeria-imagems/
 ```
 
 ### Upload completo (primeira vez)
 
 ```bash
-aws s3 sync . "s3://skylineip/Tour Virtual/ABL Prime/SALTO IMPERIAL/galeria-imagems/" \
+aws s3 sync . "s3://skylineip/Tour Virtual/ABL Prime/galeria-imagems/" \
   --exclude ".git/*" --exclude "*.md" \
   --content-type "text/html" --include "*.html"
 
-aws s3 sync assets/ "s3://skylineip/Tour Virtual/ABL Prime/SALTO IMPERIAL/galeria-imagems/assets/"
+aws s3 sync assets/ "s3://skylineip/Tour Virtual/ABL Prime/galeria-imagems/assets/"
 ```
 
 ### Atualizar só os arquivos principais
 
 ```bash
-aws s3 cp index.html "s3://skylineip/Tour Virtual/ABL Prime/SALTO IMPERIAL/galeria-imagems/index.html" \
+aws s3 cp index.html "s3://skylineip/Tour Virtual/ABL Prime/galeria-imagems/index.html" \
   --content-type "text/html"
 
-aws s3 cp inject.js "s3://skylineip/Tour Virtual/ABL Prime/SALTO IMPERIAL/galeria-imagems/inject.js" \
+aws s3 cp inject.js "s3://skylineip/Tour Virtual/ABL Prime/galeria-imagems/inject.js" \
   --content-type "application/javascript"
 ```
 
 ### URLs resultantes
 
 ```
-https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/SALTO%20IMPERIAL/galeria-imagems/index.html
-https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/SALTO%20IMPERIAL/galeria-imagems/inject.js
+https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/galeria-imagems/index.html
+https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/galeria-imagems/inject.js
 ```
 
 ---
@@ -160,7 +160,7 @@ https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/SALTO%20IMPERIAL/g
 ```html
 <script>
 (() => {
-  const scriptUrl = 'https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/SALTO%20IMPERIAL/galeria-imagems/inject.js';
+  const scriptUrl = 'https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/galeria-imagems/inject.js';
   if (document.querySelector(`script[src="${scriptUrl}"]`)) return;
   const s = document.createElement('script');
   s.src = scriptUrl;

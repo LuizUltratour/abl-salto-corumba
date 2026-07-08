@@ -1,7 +1,7 @@
 (function (w, d) {
   'use strict';
 
-  var GALLERY_URL = 'https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/SALTO%20IMPERIAL/galeria-imagems/index.html';
+  var GALLERY_URL = 'https://skylineip.s3.amazonaws.com/Tour%20Virtual/ABL%20Prime/galeria-imagems/index.html';
 
   var overlay    = null;
   var msgHandler = null;
